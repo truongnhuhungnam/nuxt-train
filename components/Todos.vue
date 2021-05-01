@@ -13,18 +13,24 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name: 'Todos',
-    data() {
-        return {
-            todos: [],
-        }
+    // data() {
+    //     return {
+    //         todos: [],
+    //     }
+    // },
+    // async fetch() {
+    //     this.todos = await fetch(
+    //         'https://jsonplaceholder.typicode.com/todos'
+    //     ).then((res) => res.json())
+    // },
+    // fetchOnServer: false,
+
+    computed: mapState(['todos']),
+    mounted() {
+        this.$store.dispatch('loadTodos')
     },
-    async fetch() {
-        this.todos = await fetch(
-            'https://jsonplaceholder.typicode.com/todos'
-        ).then((res) => res.json())
-    },
-    fetchOnServer: false,
 }
 </script>
