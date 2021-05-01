@@ -1,20 +1,5 @@
 import axios from 'axios'
-export const state = () => ({
-    todos: [],
-})
-export const getters = {
-    todos: (state) => {
-        return state.todos
-    },
-}
-
-export const mutations = {
-    SET_TODOS(state, todos) {
-        state.todos = todos
-    },
-}
-
-export const actions = {
+export default {
     loadTodos({ commit }) {
         axios
             .get('https://jsonplaceholder.typicode.com/todos')

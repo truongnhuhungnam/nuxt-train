@@ -28,9 +28,13 @@ export default {
     // },
     // fetchOnServer: false,
 
-    computed: mapState(['todos']),
+    computed: {
+        ...mapState({
+            todos: (state) => state.todos.todos,
+        }),
+    },
     mounted() {
-        this.$store.dispatch('loadTodos')
+        this.$store.dispatch('todos/loadTodos')
     },
 }
 </script>
