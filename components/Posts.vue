@@ -1,6 +1,6 @@
 <template>
-    <div class="Posts m-5">
-        <ul>
+    <div class="Posts flex justify-center m-5">
+        <ul class="w-1/2">
             <li
                 v-for="post in posts"
                 :key="post.id"
@@ -11,7 +11,13 @@
                     class="text-blue-400 hover:underline"
                 >
                     <h3 class="text-xl">{{ post.title }}</h3>
-                    <p>{{ post.body }}</p>
+                    <truncate
+                        clamp="..."
+                        :length="100"
+                        less="Show Less"
+                        :text="post.body"
+                    ></truncate>
+                    <p class="text-right">by: {{ post.userId }}</p>
                 </nuxt-link>
             </li>
         </ul>
@@ -19,8 +25,10 @@
 </template>
 
 <script>
+import truncate from 'vue-truncate-collapsed'
 export default {
     name: 'Posts',
+    components: { truncate },
     data() {
         return {
             posts: [],
