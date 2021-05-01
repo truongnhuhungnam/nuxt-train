@@ -23,7 +23,7 @@ export default {
     async fetch() {
         this.todos = await fetch(
             'https://jsonplaceholder.typicode.com/todos'
-        ).then((response) => response.json())
+        ).then((res) => res.json())
     },
     fetchOnServer: false,
 }
