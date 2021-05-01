@@ -1,6 +1,6 @@
 import axios from 'axios'
 export default {
-    loadTodos({ commit }) {
+    getTodos({ commit }) {
         axios
             .get('https://jsonplaceholder.typicode.com/todos')
             .then((response) => response.data)

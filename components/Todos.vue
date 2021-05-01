@@ -16,17 +16,6 @@
 import { mapState } from 'vuex'
 export default {
     name: 'Todos',
-    // data() {
-    //     return {
-    //         todos: [],
-    //     }
-    // },
-    // async fetch() {
-    //     this.todos = await fetch(
-    //         'https://jsonplaceholder.typicode.com/todos'
-    //     ).then((res) => res.json())
-    // },
-    // fetchOnServer: false,
 
     computed: {
         ...mapState({
@@ -34,7 +23,7 @@ export default {
         }),
     },
     mounted() {
-        this.$store.dispatch('todos/loadTodos')
+        this.$store.dispatch('todos/getTodos')
     },
 }
 </script>
