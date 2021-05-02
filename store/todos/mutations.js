@@ -5,4 +5,7 @@ export default {
     DELETE_TODO(state, todoId) {
         state.todos = state.todos.filter((todo) => todo.id !== todoId)
     },
+    ADD_TODO(state, newTodo) {
+        state.todos.unshift(newTodo)
+    },
 }

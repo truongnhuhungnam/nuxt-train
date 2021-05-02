@@ -1,5 +1,6 @@
 <template>
     <div class="Todos m-5">
+        <TodosForm />
         <ul class="list-none md:list-disc">
             <li
                 v-for="todo in todos"
@@ -25,17 +26,22 @@
 
 <script>
 import { mapState } from 'vuex'
+import TodosForm from './TodosForm.vue'
 export default {
     name: 'Todos',
+
+    components: { TodosForm },
 
     computed: {
         ...mapState({
             todos: (state) => state.todos.todos,
         }),
     },
+
     mounted() {
         this.$store.dispatch('todos/getTodos')
     },
+
     methods: {
         deleteTodo(todoId) {
             this.$store.dispatch('todos/deleteTodo', todoId)
