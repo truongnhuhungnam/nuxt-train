@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import TodosForm from './TodosForm.vue'
 export default {
     name: 'Todos',
@@ -43,9 +43,9 @@ export default {
     },
 
     methods: {
-        deleteTodo(todoId) {
-            this.$store.dispatch('todos/deleteTodo', todoId)
-        },
+        ...mapActions({
+            deleteTodo: 'todos/deleteTodo',
+        }),
     },
 }
 </script>

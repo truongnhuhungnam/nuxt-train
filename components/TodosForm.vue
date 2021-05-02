@@ -10,7 +10,7 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
 export default {
     name: 'TodosForm',
@@ -20,9 +20,9 @@ export default {
         }
     },
     methods: {
-        addTodo(newTodo) {
-            this.$store.dispatch('todos/addTodo', newTodo)
-        },
+        ...mapActions({
+            addTodo: 'todos/addTodo',
+        }),
 
         onSubmit(event) {
             event.preventDefault()
