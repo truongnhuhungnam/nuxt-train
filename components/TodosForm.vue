@@ -4,7 +4,7 @@
         <input
             type="submit"
             value="Add Todo"
-            class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded"
+            class="bg-green-500 hover:bg-green-700 text-white py-1 px-4 rounded"
         />
     </form>
 </template>
